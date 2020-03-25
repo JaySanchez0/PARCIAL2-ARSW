@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.coronavirus.modelo.Country;
 import com.coronavirus.services.CoronavirusStatusServices;
 
 @RestController
@@ -21,6 +22,10 @@ public class CoronavirusStatusController {
 	}
 	@RequestMapping(value="/country/{name}")
 	public ResponseEntity<?> getCountry(@PathVariable String name){
-		return new ResponseEntity<>(services.getCountry(name),HttpStatus.ACCEPTED);
+		Country country = services.getCountry(name);
+		if(country!=null) {
+			return new ResponseEntity<>(services.getCountry(name),HttpStatus.ACCEPTED);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }
