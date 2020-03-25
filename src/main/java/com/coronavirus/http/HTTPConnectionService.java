@@ -9,7 +9,10 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 @Service
 public class HTTPConnectionService {
-	
+	/**
+	 * 
+	 * @return devuelve un json con todos los paises impactados por la enfermedad
+	 */
 	public JSONObject getCountriesImpact() {
 		try {
 			HttpResponse<String> response = Unirest.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats")

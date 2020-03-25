@@ -1,8 +1,6 @@
 package com.coronavirus.modelo;
 
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class Country {
 	private String name;
@@ -30,7 +28,7 @@ public class Country {
 	}
 	/**
 	 * 
-	 * @param el nuevo nombre del pais
+	 * @param name nombre el nuevo nombre del pais
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -63,21 +61,41 @@ public class Country {
 	public void setDeads(int deads) {
 		this.deads = deads;
 	}
+	/**
+	 * 
+	 * @return numero de personas que se recuperaron de la enfermedad
+	 */
 	public int getRecovereds() {
 		return recovereds;
 	}
+	/**
+	 * 
+	 * @param recovereds nuevo numero de personas que se recuperaron de la enfermedad
+	 */
 	public void setRecovereds(int recovereds) {
 		this.recovereds = recovereds;
 	}
+	/**
+	 * 
+	 * @param province añade una nueva provincia a el pais
+	 */
 	public void addProvice(Province province) {
 		provinces.add(province);
 		this.recovereds+=province.getRecovereds();
 		this.deads+=province.getDeads();
 		this.confirmed+=province.getDeads();
 	}
+	/**
+	 * 
+	 * @return todas las provincias que pertenecen al pais
+	 */
 	public CopyOnWriteArrayList<Province> getProvinces() {
 		return provinces;
 	}
+	/**
+	 * 
+	 * @param provinces nuevas provincias que pertenecen al pais
+	 */
 	public void setProvinces(CopyOnWriteArrayList<Province> provinces) {
 		this.provinces = provinces;
 	}

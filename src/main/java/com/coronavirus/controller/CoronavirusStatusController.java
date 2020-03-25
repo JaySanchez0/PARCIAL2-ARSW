@@ -16,10 +16,19 @@ import com.coronavirus.services.CoronavirusStatusServices;
 public class CoronavirusStatusController {
 	@Autowired
 	private CoronavirusStatusServices services;
+	/**
+	 * 
+	 * @return todos los paises
+	 */
 	@RequestMapping(value="/country",method=RequestMethod.GET)
 	public ResponseEntity<?> getCountries(){
 		return new ResponseEntity<>(services.getCountries(),HttpStatus.ACCEPTED);
 	}
+	/**
+	 * 
+	 * @param name - nombre del pais a buscar
+	 * @return datos del pais solicitado
+	 */
 	@RequestMapping(value="/country/{name}")
 	public ResponseEntity<?> getCountry(@PathVariable String name){
 		Country country = services.getCountry(name);
