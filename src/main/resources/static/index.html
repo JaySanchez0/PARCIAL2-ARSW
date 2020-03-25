@@ -7,13 +7,24 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/apiclient.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<style type="text/css">
+	</style>
 	</head>
 	<body onload="app.getCountries()">
 		<h1>Coronavirus</h1>
 		
 		<div id="tabla"></div>
-		<div>
 			<div id="countryname"></div>
+			<table>
+				<tr>
+					<td>
+						<div id="map" style="width:500px; height:500px;"></div>
+					</td>
+					<td>
+						<div id="data"></div>
+					</td>
+				</tr>
+			</table>
 			<br></br>
 			<div id="provinces"></div>
 		 </div>
