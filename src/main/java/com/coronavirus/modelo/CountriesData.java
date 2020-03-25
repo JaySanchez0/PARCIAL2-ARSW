@@ -53,4 +53,7 @@ public class CountriesData {
 		this.deads+=province.getDeads();
 		this.recovereds+=province.getRecovereds();
 	}
+	public Country getCountry(String name) {
+		return countries.get(name);
+	}
 }

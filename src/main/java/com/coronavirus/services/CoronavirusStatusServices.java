@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.coronavirus.cache.CoronavirusStatusCache;
 import com.coronavirus.http.HTTPConnectionService;
 import com.coronavirus.modelo.CountriesData;
+import com.coronavirus.modelo.Country;
 import com.coronavirus.modelo.Province;
 
 @Service
@@ -19,6 +20,9 @@ public class CoronavirusStatusServices {
 	@Autowired
 	private CoronavirusStatusCache cache;
 	public CountriesData getCountries() {
+		if(cache.isCacheCountriesData()) {
+			return cache.getCountiesData();
+		}
 		CountriesData data = new CountriesData();
 		JSONObject obj = http.getCountriesImpact();
 		JSONArray arr = obj.getJSONArray("covid19Stats");
@@ -26,6 +30,10 @@ public class CoronavirusStatusServices {
 			JSONObject ob = arr.getJSONObject(i);
 			data.addProvince(ob.getString("country"),new Province(ob.getString("province"),ob.getInt("deaths"),ob.getInt("confirmed"),ob.getInt("recovered")));
 		}
+		cache.saveCountries(data);
 		return data;
+	}
+	public Country getCountry(String name) {
+		return getCountries().getCountry(name);
 	}
 }
