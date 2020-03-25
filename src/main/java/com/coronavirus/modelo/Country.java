@@ -1,5 +1,6 @@
 package com.coronavirus.modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -8,13 +9,13 @@ public class Country {
 	private int confirmed;
 	private int deads;
 	private int recovereds;
-	private ConcurrentHashMap<String,Province> provinces;
+	private ArrayList<Province> provinces;
 	public Country(String name) {
 		this.name = name;
 		this.confirmed = 0;
 		this.deads = 0;
 		this.recovereds = 0;
-		this.provinces = new ConcurrentHashMap<String,Province>();
+		this.provinces = new ArrayList<Province>();
 	}
 	public String getName() {
 		return name;
@@ -41,15 +42,15 @@ public class Country {
 		this.recovereds = recovereds;
 	}
 	public void addProvice(Province province) {
-		provinces.put(province.getName(), province);
+		provinces.add(province);
 		this.recovereds+=province.getRecovereds();
 		this.deads+=province.getDeads();
 		this.confirmed+=province.getDeads();
 	}
-	public ConcurrentHashMap<String, Province> getProvinces() {
+	public ArrayList<Province> getProvinces() {
 		return provinces;
 	}
-	public void setProvinces(ConcurrentHashMap<String, Province> provinces) {
+	public void setProvinces(ArrayList<Province> provinces) {
 		this.provinces = provinces;
 	}
 	
