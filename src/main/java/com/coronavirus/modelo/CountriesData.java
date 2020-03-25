@@ -72,15 +72,7 @@ public class CountriesData {
 	 */
 	public void setRecovereds(int recovereds) {
 		this.recovereds = recovereds;
-	}
-	/**
-	 * 
-	 * @param country añade un nuevo pais
-	 */
-	public void addCountry(Country country) {
-		this.confirmed += country.getConfirmed();
-		this.deads+=country
-	}
+	} 
 	/**
 	 * 
 	 * @param country pais al que se le va a añadir la provincia
