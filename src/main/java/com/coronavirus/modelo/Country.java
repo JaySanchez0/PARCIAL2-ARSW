@@ -83,7 +83,7 @@ public class Country {
 		provinces.add(province);
 		this.recovereds+=province.getRecovereds();
 		this.deads+=province.getDeads();
-		this.confirmed+=province.getDeads();
+		this.confirmed+=province.getConfirmed();
 	}
 	/**
 	 * 
