@@ -1,24 +1,22 @@
 package com.coronavirus.modelo;
 
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
-
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.stereotype.Component;
 @Component
 public class CountriesData {
-	private ArrayList<Country> countries;
+	private CopyOnWriteArrayList<Country> countries;
 	private int confirmed;
 	private int deads;
 	private int recovereds;
 	public CountriesData() {
-		countries=new ArrayList<Country>();
+		countries=new CopyOnWriteArrayList<Country>();
 		confirmed=0;
 		recovereds=0;
 	}
-	public ArrayList<Country> getCountries() {
+	public CopyOnWriteArrayList<Country> getCountries() {
 		return countries;
 	}
-	public void setCountries(ArrayList<Country> countries) {
+	public void setCountries(CopyOnWriteArrayList<Country> countries) {
 		this.countries = countries;
 	}
 	public int getConfirmed() {
