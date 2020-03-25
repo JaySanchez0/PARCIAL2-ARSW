@@ -15,6 +15,7 @@ public class CountriesData {
 		countries=new CopyOnWriteArrayList<Country>();
 		confirmed=0;
 		recovereds=0;
+		deads=0;
 	}
 	/**
 	 * 
@@ -78,6 +79,7 @@ public class CountriesData {
 	 */
 	public void addCountry(Country country) {
 		this.confirmed += country.getConfirmed();
+		this.deads+=country
 	}
 	/**
 	 * 
