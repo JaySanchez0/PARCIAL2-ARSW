@@ -4,9 +4,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Country {
 	private String name;
-	private int confirmed;
-	private int deads;
-	private int recovereds;
+	private long confirmed;
+	private long deads;
+	private long recovereds;
 	private CopyOnWriteArrayList<Province> provinces;
 	/**
 	 * 
@@ -37,42 +37,42 @@ public class Country {
 	 * 
 	 * @return numero de casos del covid 19 confirmados
 	 */
-	public int getConfirmed() {
+	public long getConfirmed() {
 		return confirmed;
 	}
 	/**
 	 * 
 	 * @param confirmed nuevo numero de casos confirmados
 	 */
-	public void setConfirmed(int confirmed) {
+	public void setConfirmed(long confirmed) {
 		this.confirmed = confirmed;
 	}
 	/**
 	 * 
 	 * @return numero de personas que murieron a causa del covid 19
 	 */
-	public int getDeads() {
+	public long getDeads() {
 		return deads;
 	}
 	/**
 	 * 
 	 * @param deads nuevo numero de personas que murieron a causa de la enfermedad
 	 */
-	public void setDeads(int deads) {
+	public void setDeads(long deads) {
 		this.deads = deads;
 	}
 	/**
 	 * 
 	 * @return numero de personas que se recuperaron de la enfermedad
 	 */
-	public int getRecovereds() {
+	public long getRecovereds() {
 		return recovereds;
 	}
 	/**
 	 * 
 	 * @param recovereds nuevo numero de personas que se recuperaron de la enfermedad
 	 */
-	public void setRecovereds(int recovereds) {
+	public void setRecovereds(long recovereds) {
 		this.recovereds = recovereds;
 	}
 	/**
@@ -83,6 +83,7 @@ public class Country {
 		provinces.add(province);
 		this.recovereds+=province.getRecovereds();
 		this.deads+=province.getDeads();
+		//if(name.equals("US"))System.out.println(deads);
 		this.confirmed+=province.getConfirmed();
 	}
 	/**

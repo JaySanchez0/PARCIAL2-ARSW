@@ -17,6 +17,7 @@ var app = (function(){
 		
 	};
 	var showCountry = function(country){
+		console.log(country);
 		loadMap(country.name);
 		//console.log(country);
 		$("#countryname").html("<h1>Country name: "+country.name+"</h1>");
@@ -25,7 +26,7 @@ var app = (function(){
 		var tab = $("<table class='table'></table>");
 		tab.append($("<tr><td>province name</td><td>confirmed</td><td>deaths</td><td>recovereds</td></tr>"));
 		country.provinces.forEach(function(province){
-			var row = $("<tr><td>"+province.name+"</td><td>"+province.confirmed+"</td><td>"+country.deads+"</td><td>"+province.recovereds+"</td></tr>");
+			var row = $("<tr><td>"+province.name+"</td><td>"+province.confirmed+"</td><td>"+province.deads+"</td><td>"+province.recovereds+"</td></tr>");
 			tab.append(row);
 		});
 		$("#provinces").html("");
